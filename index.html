@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="حافز">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#f5f5f4">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="icon-192.png">
+<title>حافز</title>
+<style>
+  /* خط IBM Plex Sans Arabic محفوظ داخل التطبيق ليعمل دون إنترنت */
+  @font-face { font-family: 'IBM Plex Sans Arabic'; font-weight: 400; font-display: swap; src: url(fonts/plex-arabic-400-arabic.woff2) format('woff2'); unicode-range: U+0600-06FF, U+0750-077F, U+0870-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC7, U+10EC9-10EEE, U+10EF0-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1; }
+  @font-face { font-family: 'IBM Plex Sans Arabic'; font-weight: 400; font-display: swap; src: url(fonts/plex-arabic-400-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: 'IBM Plex Sans Arabic'; font-weight: 500; font-display: swap; src: url(fonts/plex-arabic-500-arabic.woff2) format('woff2'); unicode-range: U+0600-06FF, U+0750-077F, U+0870-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC7, U+10EC9-10EEE, U+10EF0-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1; }
+  @font-face { font-family: 'IBM Plex Sans Arabic'; font-weight: 500; font-display: swap; src: url(fonts/plex-arabic-500-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: 'IBM Plex Sans Arabic'; font-weight: 700; font-display: swap; src: url(fonts/plex-arabic-700-arabic.woff2) format('woff2'); unicode-range: U+0600-06FF, U+0750-077F, U+0870-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC7, U+10EC9-10EEE, U+10EF0-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1; }
+  @font-face { font-family: 'IBM Plex Sans Arabic'; font-weight: 700; font-display: swap; src: url(fonts/plex-arabic-700-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+  /* ===== الألوان: فاتح افتراضيًا، وداكن بالاختيار أو حسب الجهاز ===== */
+  :root {
+    --bg: #f5f5f4; --card: #ffffff; --text: #18181b; --muted: #71717a; --line: #e7e5e4;
+    --brand: #f97316; --brand-strong: #ea580c; --brand-soft: #ffedd5; --brand-text: #c2410c;
+    --hero: linear-gradient(135deg, #27272a, #09090b); --hero-border: transparent;
+    --h1: #fed7aa; --h2: #fdba74; --h3: #f97316; --h4: #c2410c;
+    --shadow: 0 1px 3px rgba(0,0,0,.05), 0 4px 14px rgba(0,0,0,.04);
+  }
+  :root[data-theme="dark"] {
+    --bg: #09090b; --card: #18181b; --text: #fafafa; --muted: #a1a1aa; --line: #27272a;
+    --brand: #fb923c; --brand-strong: #f97316; --brand-soft: #3b1d0c; --brand-text: #fb923c;
+    --hero: linear-gradient(135deg, #27272a, #18181b); --hero-border: #3f3f46;
+    --h1: #431407; --h2: #7c2d12; --h3: #ea580c; --h4: #fb923c;
+    --shadow: none;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #09090b; --card: #18181b; --text: #fafafa; --muted: #a1a1aa; --line: #27272a;
+      --brand: #fb923c; --brand-strong: #f97316; --brand-soft: #3b1d0c; --brand-text: #fb923c;
+      --hero: linear-gradient(135deg, #27272a, #18181b); --hero-border: #3f3f46;
+      --h1: #431407; --h2: #7c2d12; --h3: #ea580c; --h4: #fb923c;
+      --shadow: none;
+    }
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; }
+  body {
+    font-family: "IBM Plex Sans Arabic", -apple-system, "SF Arabic", Tahoma, sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.6;
+    padding-bottom: calc(80px + env(safe-area-inset-bottom));
+    transition: background .2s ease, color .2s ease;
+  }
+  button, input, textarea, select { font-family: inherit; }
+  .wrap { max-width: 560px; margin: 0 auto; padding: 16px; padding-top: calc(16px + env(safe-area-inset-top)); }
+
+  /* الترويسة */
+  header { display: flex; align-items: center; justify-content: space-between; padding: 8px 0 4px; }
+  .logo { font-size: 28px; font-weight: 700; color: var(--brand); }
+  .logo small { display: block; font-size: 12px; font-weight: 500; color: var(--muted); margin-top: -4px; }
+  .icon-btn {
+    border: 1px solid var(--line); background: var(--card); color: var(--text);
+    width: 40px; height: 40px; border-radius: 12px; font-size: 18px; cursor: pointer;
+  }
+
+  /* شريط التاريخ */
+  .datebar {
+    display: flex; align-items: center; justify-content: space-between;
+    background: var(--card); border-radius: 16px; padding: 10px 12px; margin: 12px 0; box-shadow: var(--shadow);
+  }
+  .datebar button {
+    border: none; background: var(--brand-soft); color: var(--brand-text);
+    width: 36px; height: 36px; border-radius: 10px; font-size: 18px; cursor: pointer;
+  }
+  .datebar button:disabled { opacity: .3; cursor: default; }
+  .date-text { text-align: center; }
+  .date-main { font-weight: 700; font-size: 16px; }
+  .date-sub { font-size: 12px; color: var(--muted); }
+  .today-link { font-size: 12px; color: var(--brand-text); cursor: pointer; text-decoration: underline; }
+
+  /* بطاقة التقدم */
+  .progress-card {
+    display: flex; align-items: center; gap: 16px; background: var(--hero); border: 1px solid var(--hero-border);
+    color: #fff; border-radius: 20px; padding: 18px; margin-bottom: 12px;
+  }
+  .ring { position: relative; width: 92px; height: 92px; flex-shrink: 0; }
+  .ring svg { transform: rotate(-90deg); }
+  .ring .num {
+    position: absolute; inset: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; font-weight: 700; font-size: 26px; line-height: 1;
+  }
+  .ring .num span { font-size: 11px; font-weight: 500; opacity: .8; margin-top: 4px; }
+  .progress-msg { font-size: 16px; font-weight: 700; }
+  .progress-sub { font-size: 13px; opacity: .8; margin-top: 4px; }
+
+  .report-link {
+    display: flex; align-items: center; justify-content: space-between; gap: 8px; width: 100%;
+    border: 1px solid var(--line); background: var(--card); color: var(--text); border-radius: 14px;
+    padding: 12px 14px; font-size: 14px; font-weight: 700; cursor: pointer; box-shadow: var(--shadow);
+  }
+  .report-link.evening { border-color: var(--brand); background: var(--brand-soft); color: var(--brand-text); }
+
+  /* الحفظ والاعتماد */
+  .save-state { font-size: 11px; opacity: .65; margin-top: 6px; transition: all .2s ease; }
+  .save-state.flash { opacity: 1; color: #fdba74; font-weight: 700; }
+  .submit-btn {
+    display: block; width: 100%; margin-top: 18px; padding: 15px; border-radius: 14px; cursor: pointer;
+    border: none; background: var(--brand-strong); color: #fff; font-size: 16px; font-weight: 700;
+    box-shadow: 0 4px 14px rgba(234, 88, 12, .3);
+  }
+  .submit-btn:active { transform: scale(.98); }
+  .submit-btn.done { background: var(--card); color: var(--brand-text); border: 2px solid var(--brand); box-shadow: none; }
+  .submit-note { text-align: center; margin: 8px 0 0; }
+  .submit-note a { color: var(--brand-text); }
+  .submit-btn.secondary { background: var(--card); color: var(--brand-text); border: 2px solid var(--brand); box-shadow: none; margin-top: 10px; }
+  .submit-btn.pulse { animation: pulse .4s ease 3; }
+  @keyframes pulse { 50% { transform: scale(1.04); } }
+  .lock-banner:empty { display: none; }
+  .lock-banner {
+    font-size: 13px; padding: 10px 12px; border-radius: 12px; margin-top: 12px;
+    background: var(--card); border: 1px dashed var(--muted); color: var(--muted);
+  }
+  .is-editing .lock-banner { border: 1px solid var(--brand); background: var(--brand-soft); color: var(--brand-text); font-weight: 700; }
+  .is-locked .prayers, .is-locked #habits { opacity: .7; }
+  .is-editing #habits, .is-editing .prayers { outline: 2px dashed var(--brand); outline-offset: 4px; border-radius: 14px; }
+  .badge { display: inline-block; font-size: 11px; background: rgba(251,146,60,.2); color: #fdba74; padding: 2px 10px; border-radius: 20px; margin-top: 8px; }
+  .report-link .arrow { color: var(--brand-text); }
+
+  /* الأقسام */
+  h2 { font-size: 15px; color: var(--muted); font-weight: 700; margin: 20px 4px 10px; }
+  .card { background: var(--card); border-radius: 18px; padding: 14px; box-shadow: var(--shadow); }
+
+  /* الصلوات */
+  .prayers { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+  .prayer {
+    border: 2px solid var(--line); background: transparent; color: var(--text);
+    border-radius: 14px; padding: 10px 2px; cursor: pointer;
+    display: flex; flex-direction: column; align-items: center; gap: 2px; transition: all .15s ease;
+  }
+  .prayer .ico { font-size: 22px; }
+  .prayer .nm { font-size: 13px; font-weight: 700; }
+  .prayer .st { font-size: 10px; color: var(--muted); }
+  .prayer.on { border-color: var(--brand); background: var(--brand-soft); }
+  .prayer.on .st { color: var(--brand-text); font-weight: 700; }
+  .prayer:active { transform: scale(.95); }
+
+  /* العادات */
+  .habit { display: flex; flex-direction: column; gap: 8px; padding: 12px 4px; border-bottom: 1px solid var(--line); }
+  .habit:last-child { border-bottom: none; }
+  .habit-row { display: flex; align-items: center; gap: 12px; cursor: pointer; user-select: none; }
+  .habit .ico {
+    width: 44px; height: 44px; border-radius: 12px; background: var(--bg);
+    display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0;
+  }
+  .habit .info { flex: 1; }
+  .habit .nm { font-weight: 700; font-size: 15px; }
+  .habit .hint { font-size: 12px; color: var(--muted); }
+  .habit .streak { font-size: 11px; color: var(--brand-text); font-weight: 700; }
+  .check {
+    width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--line);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    color: transparent; font-size: 18px; font-weight: 700; transition: all .15s ease;
+  }
+  .habit.on .check { background: var(--brand-strong); border-color: var(--brand-strong); color: #fff; }
+  .habit.on .ico { background: var(--brand-soft); }
+  .note, .field {
+    width: 100%; border: 1px solid var(--line); background: var(--bg); color: var(--text);
+    border-radius: 10px; padding: 8px 10px; font-size: 14px;
+  }
+  .note { resize: vertical; min-height: 38px; font-size: 13px; }
+  .note:focus, .field:focus { outline: 2px solid var(--brand); border-color: transparent; }
+
+  /* الخطوات */
+  .steps { display: flex; flex-direction: column; gap: 6px; }
+  .steps-row { display: flex; gap: 8px; }
+  .steps-row .field { flex: 1; direction: ltr; text-align: right; }
+  .small-btn {
+    border: 1px solid var(--line); background: var(--card); color: var(--text); border-radius: 10px;
+    padding: 0 12px; font-size: 13px; cursor: pointer; white-space: nowrap;
+  }
+  .steps-meta { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); }
+
+  .bar { height: 6px; background: var(--line); border-radius: 3px; overflow: hidden; }
+  .bar i { display: block; height: 100%; background: var(--brand); border-radius: 3px; transition: width .3s ease; }
+
+  /* الإحصاءات */
+  .stats-top { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .stat { background: var(--card); border-radius: 16px; padding: 12px 8px; text-align: center; box-shadow: var(--shadow); }
+  .stat b { display: block; font-size: 24px; color: var(--brand-text); }
+  .stat span { font-size: 11px; color: var(--muted); }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { color: var(--muted); font-weight: 500; font-size: 11px; padding: 6px 4px; text-align: center; }
+  th:first-child, td:first-child { text-align: right; }
+  td { padding: 8px 4px; border-top: 1px solid var(--line); text-align: center; }
+  td .bar { margin-top: 4px; }
+  .dot { width: 14px; height: 14px; border-radius: 4px; background: var(--line); display: inline-block; }
+  .dot.on { background: var(--brand); }
+
+  .chart { display: flex; align-items: flex-end; gap: 8px; height: 140px; padding-top: 18px; }
+  .chart .col { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; gap: 4px; }
+  .chart .b { width: 100%; max-width: 34px; background: var(--h2); border-radius: 6px 6px 2px 2px; min-height: 2px; position: relative; }
+  .chart .b.hit { background: var(--brand); }
+  .chart .v { font-size: 10px; color: var(--muted); }
+  .chart .l { font-size: 10px; color: var(--muted); }
+  .chart-goal { font-size: 11px; color: var(--muted); margin-top: 6px; }
+
+  .cal-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+  .cal-head b { font-size: 15px; }
+  .cal-head button { border: none; background: var(--brand-soft); color: var(--brand-text); width: 32px; height: 32px; border-radius: 8px; cursor: pointer; font-size: 16px; }
+  .cal-head button:disabled { opacity: .3; }
+  .cal { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; }
+  .cal .wd { font-size: 10px; color: var(--muted); text-align: center; }
+  .cal .c {
+    aspect-ratio: 1; border-radius: 8px; display: flex; align-items: center; justify-content: center;
+    font-size: 12px; cursor: pointer; border: 2px solid transparent;
+  }
+  .cal .c.today { border-color: var(--text); }
+  .cal .c.future { opacity: .3; cursor: default; }
+  .legend { display: flex; gap: 4px; align-items: center; justify-content: center; font-size: 11px; color: var(--muted); margin-top: 10px; }
+  .legend i { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
+
+  /* التقرير */
+  .rep-hero {
+    background: var(--hero); border: 1px solid var(--hero-border); color: #fff;
+    border-radius: 20px; padding: 20px; text-align: center;
+  }
+  .rep-hero .grade { font-size: 13px; color: #fdba74; font-weight: 700; }
+  .rep-hero .big { font-size: 48px; font-weight: 700; line-height: 1.1; margin: 6px 0; }
+  .rep-hero .big small { font-size: 18px; opacity: .7; }
+  .rep-hero .date { font-size: 13px; opacity: .75; }
+  .rep-hero .bar { background: rgba(255,255,255,.15); margin-top: 12px; height: 8px; border-radius: 4px; }
+  .rep-hero .bar i { background: #fb923c; }
+  .rep-list { list-style: none; margin: 0; padding: 0; }
+  .rep-list li { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+  .rep-list li:last-child { border-bottom: none; }
+  .rep-list .mk { width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+  .rep-list .mk.ok { background: var(--brand-strong); color: #fff; }
+  .rep-list .mk.no { background: var(--line); color: var(--muted); }
+  .rep-list .sub { font-size: 12px; color: var(--muted); margin-inline-start: auto; }
+  .rep-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .rep-box { background: var(--bg); border-radius: 12px; padding: 10px; text-align: center; }
+  .rep-box b { display: block; font-size: 20px; }
+  .rep-box span { font-size: 11px; color: var(--muted); }
+  .up { color: #16a34a; } .down { color: #dc2626; }
+  .tomorrow { border-inline-start: 4px solid var(--brand); }
+
+  .btn {
+    display: block; width: 100%; border: 1px solid var(--line); background: var(--card); color: var(--text);
+    padding: 12px; border-radius: 12px; font-size: 14px; cursor: pointer; margin-bottom: 8px;
+  }
+  .btn.primary { background: var(--brand-strong); border-color: var(--brand-strong); color: #fff; font-weight: 700; }
+  .btn.danger { color: #dc2626; }
+  .muted { color: var(--muted); font-size: 12px; }
+  .seg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; background: var(--bg); padding: 4px; border-radius: 12px; }
+  .seg button { border: none; background: transparent; color: var(--text); padding: 8px; border-radius: 9px; font-size: 13px; cursor: pointer; }
+  .seg button.on { background: var(--card); color: var(--brand-text); font-weight: 700; box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  .set-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .set-row:last-child { border-bottom: none; }
+  .set-row .field { width: 110px; direction: ltr; text-align: center; }
+  ol.howto { margin: 0; padding-inline-start: 20px; font-size: 13px; }
+  ol.howto li { margin-bottom: 6px; }
+
+  /* شريط التنقل السفلي */
+  nav {
+    position: fixed; bottom: 0; left: 0; right: 0; background: var(--card);
+    border-top: 1px solid var(--line); display: flex; justify-content: center;
+    padding: 6px 0 calc(6px + env(safe-area-inset-bottom)); z-index: 10;
+  }
+  nav .inner { display: flex; width: 100%; max-width: 560px; }
+  nav button {
+    flex: 1; border: none; background: none; color: var(--muted);
+    font-size: 12px; padding: 6px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 2px;
+  }
+  nav button .i { font-size: 20px; filter: grayscale(1); opacity: .7; }
+  nav button.active { color: var(--brand-text); font-weight: 700; }
+  nav button.active .i { filter: none; opacity: 1; }
+
+  .view { display: none; }
+  .view.active { display: block; }
+
+  .confetti { position: fixed; top: -20px; font-size: 22px; pointer-events: none; animation: fall 2.2s ease-in forwards; z-index: 50; }
+  @keyframes fall { to { transform: translateY(105vh) rotate(540deg); opacity: .2; } }
+  .toast {
+    position: fixed; bottom: 90px; left: 50%; transform: translateX(-50%);
+    background: var(--text); color: var(--bg); padding: 10px 18px; border-radius: 12px;
+    font-size: 14px; opacity: 0; transition: opacity .3s; pointer-events: none; z-index: 60; text-align: center; max-width: 90vw;
+  }
+  .toast.show { opacity: 1; }
+</style>
+<script>
+  // تطبيق المظهر المحفوظ قبل رسم الصفحة لتفادي الوميض
+  try { const t = (JSON.parse(localStorage.getItem('hafez-v1') || '{}').settings || {}).theme;
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}
+</script>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo">حافز<small>خطوة صغيرة كل يوم</small></div>
+    <button class="icon-btn" id="themeBtn" title="تبديل المظهر"></button>
+  </header>
+
+  <!-- ===== اليوم ===== -->
+  <section class="view active" id="view-today">
+    <div class="datebar">
+      <button id="prevDay" aria-label="اليوم السابق">→</button>
+      <div class="date-text">
+        <div class="date-main" id="dateMain"></div>
+        <div class="date-sub" id="dateSub"></div>
+        <div class="today-link" id="backToday" style="display:none">العودة إلى اليوم</div>
+      </div>
+      <button id="nextDay" aria-label="اليوم التالي">←</button>
+    </div>
+
+    <div class="progress-card">
+      <div class="ring">
+        <svg width="92" height="92">
+          <circle cx="46" cy="46" r="40" stroke="rgba(255,255,255,.15)" stroke-width="8" fill="none"/>
+          <circle id="ringBar" cx="46" cy="46" r="40" stroke="#fb923c" stroke-width="8" fill="none"
+                  stroke-linecap="round" stroke-dasharray="251.3" stroke-dashoffset="251.3"
+                  style="transition: stroke-dashoffset .4s ease"/>
+        </svg>
+        <div class="num"><div id="scoreNum">0</div><span>من 10</span></div>
+      </div>
+      <div>
+        <div class="progress-msg" id="progressMsg"></div>
+        <div class="progress-sub" id="progressSub"></div>
+        <div class="save-state" id="saveState">💾 كل علامة تُحفظ تلقائيًا</div>
+      </div>
+    </div>
+
+    <button class="report-link" id="reportLink"><span id="reportLinkText">📋 تقرير اليوم</span><span class="arrow">←</span></button>
+
+    <div class="lock-banner" id="lockBanner"></div>
+
+    <h2>الصلوات الخمس في وقتها</h2>
+    <div class="card"><div class="prayers" id="prayers"></div></div>
+
+    <h2>العادات اليومية</h2>
+    <div class="card" id="habits"></div>
+
+    <div id="submitArea"></div>
+  </section>
+
+  <!-- ===== التقرير ===== -->
+  <section class="view" id="view-report">
+    <div id="report"></div>
+  </section>
+
+  <!-- ===== الإحصاءات ===== -->
+  <section class="view" id="view-stats">
+    <h2>نظرة عامة</h2>
+    <div class="stats-top">
+      <div class="stat"><b id="sWeek">0%</b><span>إنجاز آخر 7 أيام</span></div>
+      <div class="stat"><b id="sFull">0</b><span>أيام مكتملة هذا الشهر</span></div>
+      <div class="stat"><b id="sPrayStreak">0</b><span>سلسلة الصلوات الخمس</span></div>
+    </div>
+
+    <h2>الخطوات في آخر 7 أيام</h2>
+    <div class="card"><div class="chart" id="stepsChart"></div><div class="chart-goal" id="stepsChartNote"></div></div>
+
+    <h2>آخر 7 أيام</h2>
+    <div class="card" style="overflow-x:auto"><table id="weekTable"></table></div>
+
+    <h2>السلاسل والالتزام</h2>
+    <div class="card"><table id="streakTable"></table>
+      <p class="muted" style="margin:10px 0 0">السلسلة: عدد الأيام المتتالية حتى اليوم. والنسبة محسوبة على آخر 30 يومًا (أو منذ أول يوم استخدام إن كان أقرب).</p>
+    </div>
+
+    <h2>التقويم الشهري</h2>
+    <div class="card">
+      <div class="cal-head">
+        <button id="calPrev">→</button>
+        <b id="calTitle"></b>
+        <button id="calNext">←</button>
+      </div>
+      <div class="cal" id="cal"></div>
+      <div class="legend">أقل <i style="background:var(--line)"></i><i style="background:var(--h1)"></i><i style="background:var(--h2)"></i><i style="background:var(--h3)"></i><i style="background:var(--h4)"></i> مكتمل</div>
+    </div>
+
+    <h2>سجل التطوير</h2>
+    <div class="card" id="notesLog"></div>
+  </section>
+
+  <!-- ===== الإعدادات ===== -->
+  <section class="view" id="view-settings">
+    <h2>المظهر</h2>
+    <div class="card">
+      <div class="seg" id="themeSeg">
+        <button data-theme="auto">تلقائي</button>
+        <button data-theme="light">☀️ فاتح</button>
+        <button data-theme="dark">🌙 داكن</button>
+      </div>
+      <p class="muted" style="margin:8px 0 0">«تلقائي» يتبع إعداد الجوال: داكن ليلًا إن كان الجوال كذلك.</p>
+    </div>
+
+    <h2>الخطوات</h2>
+    <div class="card">
+      <div class="set-row">
+        <div><b>هدف الخطوات اليومي</b><div class="muted">حين تبلغه تُعلَّم عادة الرياضة تلقائيًا</div></div>
+        <input class="field" id="goalInput" type="number" inputmode="numeric" min="100" step="500">
+      </div>
+    </div>
+
+    <h2>جلب الخطوات من الآيفون</h2>
+    <div class="card">
+      <p style="margin-top:0;font-size:13px">لا يستطيع أي تطبيق ويب قراءة تطبيق «صحتي» مباشرة، لكن اختصارًا صغيرًا ينسخ عدد خطواتك فتلصقه هنا بضغطة:</p>
+      <ol class="howto">
+        <li>افتح تطبيق <b>الاختصارات (Shortcuts)</b> واضغط <b>+</b>.</li>
+        <li>أضف إجراء <b>«البحث عن عينات الصحة» (Find Health Samples)</b>، واختر النوع <b>الخطوات</b>، وشرط التاريخ <b>اليوم</b>.</li>
+        <li>أضف إجراء <b>«حساب الإحصاءات» (Calculate Statistics)</b> واختر <b>المجموع (Sum)</b>.</li>
+        <li>أضف إجراء <b>«نسخ إلى الحافظة» (Copy to Clipboard)</b>.</li>
+        <li>سمِّ الاختصار «خطواتي» وأضفه إلى الشاشة الرئيسية أو إلى أداة (Widget).</li>
+      </ol>
+      <p class="muted" style="margin-bottom:0">بعدها: شغّل «خطواتي»، ثم افتح حافز واضغط «📋 لصق» في بطاقة الرياضة. وتستطيع كتابة الرقم بيدك أيضًا.</p>
+    </div>
+
+    <h2>البيانات</h2>
+    <div class="card">
+      <p class="muted" style="margin-top:0">تُحفظ بياناتك على هذا الجهاز وفي هذا المتصفح فقط. يُنصح بتصدير نسخة احتياطية بين حين وآخر.</p>
+      <button class="btn" onclick="exportData()">⬇️ تصدير نسخة احتياطية</button>
+      <button class="btn" onclick="document.getElementById('importFile').click()">⬆️ استيراد نسخة احتياطية</button>
+      <input type="file" id="importFile" accept="application/json,.json" style="display:none">
+      <button class="btn danger" onclick="resetData()">🗑️ مسح كل البيانات</button>
+    </div>
+    <h2>عن حافز</h2>
+    <div class="card">
+      <p style="margin:0">تطبيق بسيط لمتابعة عشر عادات يومية: الصلوات الخمس كلٌّ في وقتها، والرياضة، والأكل الصحي، والاستيقاظ المبكر، والتطوير الذاتي، والتطوير المهني.</p>
+      <p class="muted" style="margin-bottom:0">القاعدة: القليل الدائم خير من الكثير المنقطع.</p>
+    </div>
+  </section>
+</div>
+
+<nav>
+  <div class="inner">
+    <button data-view="today" class="active"><span class="i">✅</span>اليوم</button>
+    <button data-view="report"><span class="i">📋</span>التقرير</button>
+    <button data-view="stats"><span class="i">📊</span>الإحصاءات</button>
+    <button data-view="settings"><span class="i">⚙️</span>الإعدادات</button>
+  </div>
+</nav>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ===== تعريف العادات =====
+const PRAYERS = [
+  { id: 'fajr',    name: 'الفجر',  icon: '🌅' },
+  { id: 'dhuhr',   name: 'الظهر',  icon: '☀️' },
+  { id: 'asr',     name: 'العصر',  icon: '🌤️' },
+  { id: 'maghrib', name: 'المغرب', icon: '🌇' },
+  { id: 'isha',    name: 'العشاء', icon: '🌙' },
+];
+const HABITS = [
+  { id: 'sport', name: 'الرياضة',          hint: 'المشي ولو قليلًا',                    icon: '🚶', steps: true },
+  { id: 'food',  name: 'الأكل الصحي',      hint: 'وجبة صحية واحدة في اليوم على الأقل',   icon: '🥗' },
+  { id: 'wake',  name: 'الاستيقاظ المبكر', hint: 'الاستيقاظ للعمل أبكر قليلًا',          icon: '⏰' },
+  { id: 'self',  name: 'تطوير نفسي',       hint: 'قراءة أو بودكاست في تطوير الذات',      icon: '📖', note: 'ماذا قرأت أو سمعت اليوم؟' },
+  { id: 'pro',   name: 'تطوير مهني',       hint: 'معلومة جديدة واحدة تفيدك في العمل',    icon: '💼', note: 'ما المعلومة الجديدة؟' },
+];
+const ALL = [...PRAYERS, ...HABITS];
+const TOTAL = ALL.length;
+const KEY = 'hafez-v1';
+const DEFAULTS = { stepGoal: 3000, theme: 'auto' };
+
+// ===== التخزين =====
+let state = load();
+function load() {
+  let s;
+  try { s = JSON.parse(localStorage.getItem(KEY)); } catch (e) {}
+  s = s && s.days ? s : { days: {} };
+  s.settings = { ...DEFAULTS, ...(s.settings || {}) };
+  return s;
+}
+function save() {
+  try { localStorage.setItem(KEY, JSON.stringify(state)); flashSaved(); }
+  catch (e) { toast('تعذّر الحفظ في هذا المتصفح، صدّر نسخة احتياطية'); }
+}
+// مؤشر صغير يؤكد أن كل علامة حُفظت فور وضعها
+let savedTimer;
+function flashSaved() {
+  const el = document.getElementById('saveState');
+  if (!el) return;
+  el.textContent = '✓ حُفظ';
+  el.classList.add('flash');
+  clearTimeout(savedTimer);
+  savedTimer = setTimeout(() => { el.textContent = '💾 كل علامة تُحفظ تلقائيًا'; el.classList.remove('flash'); }, 1500);
+}
+
+// ===== الاعتماد والتعديل =====
+// اليوم المعتمد يُقفَل، ويُفتح بزر «تعديل المنجزات». وفي وضع التعديل:
+// «اعتماد التعديلات» يثبّت التغييرات، و«تراجع» يعيد اليوم كما كان قبل فتح التعديل
+let editing = null; // { day, snapshot }
+const isEditing = s => !!editing && editing.day === s;
+const isLocked = s => !!dayData(s).submitted && !isEditing(s);
+
+function submitDay(s) {
+  const wasEdit = isEditing(s);
+  ensureDay(s).submitted = Date.now();
+  editing = null;
+  save();
+  render();
+  toast(wasEdit ? `اعتُمدت التعديلات: ${score(s)} من ${TOTAL}`
+       : score(s) === TOTAL ? 'اعتُمد يومك المكتمل 🎉' : `اعتُمدت منجزات اليوم: ${score(s)} من ${TOTAL}`);
+  showView('report');
+}
+function startEdit(s) {
+  editing = { day: s, snapshot: JSON.stringify(dayData(s)) };
+  render();
+  showView('today');
+  toast('وضع التعديل مفتوح، عدّل ثم اضغط «اعتماد التعديلات»');
+}
+function cancelEdit() {
+  if (!editing) return;
+  state.days[editing.day] = JSON.parse(editing.snapshot);
+  editing = null;
+  save();
+  render();
+  toast('تراجعت عن التعديلات، وعاد اليوم كما اعتمدته');
+}
+function unsubmit(s) {
+  if (!confirm('سيُلغى اعتماد هذا اليوم وتبقى علاماتك كما هي. هل تريد المتابعة؟')) return;
+  delete ensureDay(s).submitted;
+  editing = null;
+  save();
+  render();
+  toast('أُلغي الاعتماد');
+}
+// يُستدعى قبل أي تغيير في يوم معتمد
+function guard(fn) {
+  if (isLocked(current)) {
+    toast('هذا اليوم معتمد، اضغط «✏️ تعديل المنجزات» أولًا');
+    const b = document.getElementById('editBtn');
+    if (b) { b.scrollIntoView({ behavior: 'smooth', block: 'center' }); b.classList.add('pulse'); setTimeout(() => b.classList.remove('pulse'), 1200); }
+    return;
+  }
+  fn();
+}
+// مغادرة اليوم أثناء التعديل تُبقي التغييرات وتعيد قفله
+function leaveEdit() { if (editing && editing.day !== current) editing = null; }
+
+// ===== أدوات التاريخ والأرقام =====
+const ymd = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+const parse = s => { const [y, m, d] = s.split('-').map(Number); return new Date(y, m - 1, d); };
+const addDays = (s, n) => { const d = parse(s); d.setDate(d.getDate() + n); return ymd(d); };
+const today = () => ymd(new Date());
+const num = n => Number(n || 0).toLocaleString('en-US');
+
+const fmtGreg  = new Intl.DateTimeFormat('ar-SA-u-ca-gregory-nu-latn', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+const fmtHijri = new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura-nu-latn', { day: 'numeric', month: 'long', year: 'numeric' });
+const fmtWd    = new Intl.DateTimeFormat('ar-SA-u-ca-gregory-nu-latn', { weekday: 'short' });
+const fmtMonth = new Intl.DateTimeFormat('ar-SA-u-ca-gregory-nu-latn', { month: 'long', year: 'numeric' });
+const fmtShort = new Intl.DateTimeFormat('ar-SA-u-ca-gregory-nu-latn', { day: 'numeric', month: 'short' });
+
+// ===== منطق البيانات =====
+const dayData = s => state.days[s] || {};
+const ensureDay = s => state.days[s] || (state.days[s] = {});
+const score = s => ALL.filter(h => dayData(s)[h.id]).length;
+const allPrayers = s => PRAYERS.every(p => dayData(s)[p.id]);
+const firstDay = () => Object.keys(state.days).sort()[0] || today();
+const goal = () => Math.max(100, Number(state.settings.stepGoal) || DEFAULTS.stepGoal);
+
+function setHabit(s, id, value) {
+  const before = score(s);
+  ensureDay(s)[id] = value;
+  save();
+  render();
+  if (before < TOTAL && score(s) === TOTAL) celebrate();
+}
+const toggle = (s, id) => setHabit(s, id, !dayData(s)[id]);
+
+function setNote(s, id, text) {
+  const d = ensureDay(s);
+  d.notes = d.notes || {};
+  d.notes[id] = text;
+  save();
+}
+
+// حفظ الخطوات، وتعليم الرياضة تلقائيًا عند بلوغ الهدف
+function setSteps(s, value) {
+  const n = Math.max(0, Math.round(Number(String(value).replace(/[^\d]/g, '')) || 0));
+  ensureDay(s).steps = n;
+  save();
+  if (n >= goal() && !dayData(s).sport) {
+    setHabit(s, 'sport', true);
+    toast(`بلغت هدف ${num(goal())} خطوة، وعُلّمت الرياضة`);
+  } else render();
+}
+
+// السلسلة حتى يوم معيّن. وفي اليوم الحالي لا تنكسر قبل انتهائه
+function streakAt(s, test) {
+  if (!test(s)) { if (s !== today()) return 0; s = addDays(s, -1); }
+  let n = 0;
+  while (test(s)) { n++; s = addDays(s, -1); }
+  return n;
+}
+const streak = test => streakAt(today(), test);
+function bestStreak(test) {
+  let s = firstDay(), end = today(), cur = 0, best = 0;
+  while (s <= end) { if (test(s)) { cur++; best = Math.max(best, cur); } else cur = 0; s = addDays(s, 1); }
+  return best;
+}
+function rate30(test) {
+  const start = [addDays(today(), -29), firstDay()].sort()[1];
+  let s = start, n = 0, total = 0;
+  while (s <= today()) { total++; if (test(s)) n++; s = addDays(s, 1); }
+  return total ? Math.round(n / total * 100) : 0;
+}
+
+// ===== المظهر =====
+function applyTheme() {
+  const t = state.settings.theme;
+  if (t === 'auto') delete document.documentElement.dataset.theme;
+  else document.documentElement.dataset.theme = t;
+  const dark = t === 'dark' || (t === 'auto' && matchMedia('(prefers-color-scheme: dark)').matches);
+  document.querySelector('meta[name="theme-color"]').content = dark ? '#09090b' : '#f5f5f4';
+  document.getElementById('themeBtn').textContent = dark ? '☀️' : '🌙';
+  document.querySelectorAll('#themeSeg button').forEach(b => b.classList.toggle('on', b.dataset.theme === t));
+}
+function setTheme(t) { state.settings.theme = t; save(); applyTheme(); }
+document.getElementById('themeBtn').onclick = () => {
+  const dark = document.getElementById('themeBtn').textContent === '☀️';
+  setTheme(dark ? 'light' : 'dark');
+};
+document.querySelectorAll('#themeSeg button').forEach(b => b.onclick = () => setTheme(b.dataset.theme));
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme);
+
+// ===== العرض =====
+let current = today();
+let calMonth = new Date(); calMonth.setDate(1);
+
+function render() { renderToday(); renderReport(); renderStats(); }
+
+function renderToday() {
+  const isToday = current === today();
+  const d = parse(current);
+  document.getElementById('dateMain').textContent = isToday ? 'اليوم · ' + fmtGreg.format(d) : fmtGreg.format(d);
+  document.getElementById('dateSub').textContent = fmtHijri.format(d);
+  document.getElementById('nextDay').disabled = isToday;
+  document.getElementById('backToday').style.display = isToday ? 'none' : 'block';
+
+  // أزرار الاعتماد والتعديل حسب حالة اليوم
+  leaveEdit();
+  const sub = dayData(current).submitted;
+  const which = isToday ? 'اليوم' : 'هذا اليوم';
+  const time = sub ? new Date(sub).toLocaleTimeString('ar-SA-u-nu-latn', { hour: 'numeric', minute: '2-digit' }) : '';
+  const area = document.getElementById('submitArea');
+  const view = document.getElementById('view-today');
+  view.classList.toggle('is-locked', isLocked(current));
+  view.classList.toggle('is-editing', isEditing(current));
+  document.getElementById('lockBanner').innerHTML = isLocked(current)
+    ? `🔒 منجزات ${which} معتمدة الساعة ${time}. للإكمال أو التصحيح اضغط «تعديل المنجزات»`
+    : isEditing(current) ? `✏️ وضع التعديل: غيّر ما تريد ثم اعتمد، أو تراجع لإلغاء التغييرات` : '';
+  if (isEditing(current)) {
+    area.innerHTML = `
+      <button class="submit-btn" id="submitDay">✓ اعتماد التعديلات</button>
+      <button class="submit-btn secondary" id="cancelBtn">↩️ تراجع عن التعديلات</button>`;
+    document.getElementById('submitDay').onclick = () => submitDay(current);
+    document.getElementById('cancelBtn').onclick = cancelEdit;
+  } else if (sub) {
+    area.innerHTML = `
+      <button class="submit-btn secondary" id="editBtn">✏️ تعديل المنجزات</button>
+      <p class="muted submit-note">اعتُمدت الساعة ${time} · <a href="#" id="unsubmitLink">إلغاء الاعتماد</a></p>`;
+    document.getElementById('editBtn').onclick = () => startEdit(current);
+    document.getElementById('unsubmitLink').onclick = e => { e.preventDefault(); unsubmit(current); };
+  } else {
+    area.innerHTML = `
+      <button class="submit-btn" id="submitDay">✓ اعتماد منجزات ${which}</button>
+      <p class="muted submit-note">علاماتك محفوظة أولًا بأول، والاعتماد يؤكد يومك ويفتح تقريره</p>`;
+    document.getElementById('submitDay').onclick = () => submitDay(current);
+  }
+
+  const sc = score(current);
+  document.getElementById('scoreNum').textContent = sc;
+  document.getElementById('ringBar').style.strokeDashoffset = 251.3 * (1 - sc / TOTAL);
+  const prayed = PRAYERS.filter(p => dayData(current)[p.id]).length;
+  document.getElementById('progressMsg').textContent = message(sc);
+  document.getElementById('progressSub').textContent = `الصلوات ${prayed} من 5 · العادات ${sc - prayed} من 5`;
+
+  // رابط التقرير، ويُبرَز مساءً
+  const evening = isToday && new Date().getHours() >= 21;
+  const link = document.getElementById('reportLink');
+  link.classList.toggle('evening', evening);
+  document.getElementById('reportLinkText').textContent =
+    evening ? '📋 يومك قارب على الانتهاء، تقريرك جاهز' : isToday ? '📋 تقرير اليوم' : '📋 تقرير هذا اليوم';
+
+  // الصلوات
+  const pEl = document.getElementById('prayers');
+  pEl.innerHTML = '';
+  PRAYERS.forEach(p => {
+    const on = !!dayData(current)[p.id];
+    const b = document.createElement('button');
+    b.className = 'prayer' + (on ? ' on' : '');
+    b.innerHTML = `<span class="ico">${p.icon}</span><span class="nm">${p.name}</span><span class="st">${on ? 'في وقتها ✓' : 'لم تُسجَّل'}</span>`;
+    b.onclick = () => guard(() => toggle(current, p.id));
+    pEl.appendChild(b);
+  });
+
+  // العادات
+  const hEl = document.getElementById('habits');
+  hEl.innerHTML = '';
+  HABITS.forEach(h => {
+    const on = !!dayData(current)[h.id];
+    const st = streakAt(current, s => dayData(s)[h.id]);
+    const wrap = document.createElement('div');
+    wrap.className = 'habit' + (on ? ' on' : '');
+    wrap.innerHTML = `
+      <div class="habit-row">
+        <div class="ico">${h.icon}</div>
+        <div class="info">
+          <div class="nm">${h.name}</div>
+          <div class="hint">${h.hint}</div>
+          ${st > 1 ? `<div class="streak">🔥 ${st} أيام متتالية</div>` : ''}
+        </div>
+        <div class="check">✓</div>
+      </div>`;
+    wrap.querySelector('.habit-row').onclick = () => guard(() => toggle(current, h.id));
+    if (h.steps) wrap.appendChild(stepsBox());
+    if (h.note) {
+      const ta = document.createElement('textarea');
+      ta.className = 'note';
+      ta.rows = 1;
+      ta.placeholder = h.note + ' (اختياري)';
+      ta.value = (dayData(current).notes || {})[h.id] || '';
+      ta.readOnly = isLocked(current);
+      ta.onfocus = () => { if (ta.readOnly) { ta.blur(); guard(() => {}); } };
+      ta.oninput = () => setNote(current, h.id, ta.value);
+      wrap.appendChild(ta);
+    }
+    hEl.appendChild(wrap);
+  });
+}
+
+function stepsBox() {
+  const steps = dayData(current).steps || 0;
+  const pct = Math.min(100, Math.round(steps / goal() * 100));
+  const box = document.createElement('div');
+  box.className = 'steps';
+  box.innerHTML = `
+    <div class="steps-row">
+      <input class="field" type="text" inputmode="numeric" placeholder="عدد خطواتك" value="${steps ? num(steps) : ''}">
+      <button class="small-btn" type="button">📋 لصق</button>
+    </div>
+    <div class="bar"><i style="width:${pct}%"></i></div>
+    <div class="steps-meta"><span>${num(steps)} من ${num(goal())} خطوة</span><span>${pct}%</span></div>`;
+  const input = box.querySelector('input');
+  input.readOnly = isLocked(current);
+  input.onfocus = () => { if (input.readOnly) { input.blur(); guard(() => {}); } };
+  input.onchange = () => setSteps(current, input.value);
+  input.onkeydown = e => { if (e.key === 'Enter') input.blur(); };
+  box.querySelector('button').onclick = async () => {
+    if (isLocked(current)) return guard(() => {});
+    try {
+      const t = await navigator.clipboard.readText();
+      const digits = (t || '').replace(/[٠-٩]/g, c => '٠١٢٣٤٥٦٧٨٩'.indexOf(c)).match(/[\d,.]+/);
+      if (!digits) throw 0;
+      setSteps(current, digits[0].split('.')[0]);
+      toast('أُضيف عدد الخطوات من الحافظة');
+    } catch (e) { toast('لم أجد رقمًا في الحافظة، اكتب العدد في الخانة'); input.focus(); }
+  };
+  return box;
+}
+
+function message(sc) {
+  if (sc === 0)  return 'كل يوم فرصة جديدة، ابدأ بخطوة واحدة';
+  if (sc <= 3)   return 'بداية طيبة، واصل';
+  if (sc <= 6)   return 'أنت في منتصف الطريق';
+  if (sc <= 9)   return 'قريب جدًا من يوم مكتمل';
+  return 'يوم مكتمل، بارك الله في جهدك';
+}
+function grade(sc) {
+  if (sc === TOTAL) return 'يوم مكتمل';
+  if (sc >= 8) return 'يوم ممتاز';
+  if (sc >= 6) return 'يوم جيد';
+  if (sc >= 3) return 'يوم متوسط';
+  return 'يوم يحتاج دفعة';
+}
+
+// ===== تقرير نهاية اليوم =====
+function renderReport() {
+  const s = current, d = dayData(s), sc = score(s);
+  const isToday = s === today();
+  const prayed = PRAYERS.filter(p => d[p.id]);
+  const done = HABITS.filter(h => d[h.id]);
+  const missed = HABITS.filter(h => !d[h.id]);
+  const missedPrayers = PRAYERS.filter(p => !d[p.id]);
+  const steps = d.steps || 0;
+  const pct = Math.min(100, Math.round(steps / goal() * 100));
+
+  // المقارنة بالأمس وبمتوسط الأيام السبعة السابقة
+  const y = score(addDays(s, -1));
+  const prev7 = [...Array(7)].map((_, i) => addDays(s, -(i + 1))).filter(x => x >= firstDay());
+  const avg = prev7.length ? prev7.reduce((a, x) => a + score(x), 0) / prev7.length : null;
+  const diff = (a, b) => { const v = Math.round((a - b) * 10) / 10; return v > 0 ? `<span class="up">+${v}</span>` : v < 0 ? `<span class="down">${v}</span>` : '<span>=</span>'; };
+
+  // السلاسل الحية في ذلك اليوم
+  const streaks = [
+    ...ALL.map(h => ({ label: `${h.icon} ${h.name}`, n: streakAt(s, x => !!dayData(x)[h.id]) })),
+    { label: '🕌 الصلوات الخمس كاملة', n: streakAt(s, allPrayers) },
+  ].filter(x => x.n >= 2).sort((a, b) => b.n - a.n).slice(0, 4);
+
+  const focus = [...missedPrayers.map(p => 'صلاة ' + p.name), ...missed.map(h => h.name)];
+  const notes = d.notes || {};
+
+  document.getElementById('report').innerHTML = `
+    <div class="rep-hero" style="margin-top:12px">
+      <div class="grade">${grade(sc)}</div>
+      <div class="big">${sc}<small> / ${TOTAL}</small></div>
+      <div class="date">${isToday ? 'تقرير اليوم · ' : 'تقرير '}${fmtGreg.format(parse(s))}</div>
+      <div class="badge">${d.submitted ? '✓ منجزات معتمدة' : 'لم تُعتمد بعد'}</div>
+      <div class="bar"><i style="width:${sc / TOTAL * 100}%"></i></div>
+    </div>
+
+    <h2>الصلوات · ${prayed.length} من 5 في وقتها</h2>
+    <div class="card"><ul class="rep-list">
+      ${PRAYERS.map(p => `<li><span class="mk ${d[p.id] ? 'ok' : 'no'}">${d[p.id] ? '✓' : '–'}</span>${p.icon} ${p.name}<span class="sub">${d[p.id] ? 'في وقتها' : 'لم تُسجَّل'}</span></li>`).join('')}
+    </ul></div>
+
+    <h2>العادات · ${done.length} من 5</h2>
+    <div class="card"><ul class="rep-list">
+      ${HABITS.map(h => `<li><span class="mk ${d[h.id] ? 'ok' : 'no'}">${d[h.id] ? '✓' : '–'}</span>${h.icon} ${h.name}<span class="sub">${
+        h.steps && steps ? num(steps) + ' خطوة' : d[h.id] ? 'أُنجزت' : 'لم تُنجز'}</span></li>`).join('')}
+    </ul></div>
+
+    <h2>الخطوات</h2>
+    <div class="card">
+      <div class="steps-meta" style="font-size:14px;color:var(--text)"><b>${num(steps)} خطوة</b><span>${pct}% من الهدف</span></div>
+      <div class="bar" style="margin-top:8px;height:8px"><i style="width:${pct}%"></i></div>
+      <p class="muted" style="margin:8px 0 0">${steps >= goal() ? `بلغت هدفك اليومي (${num(goal())} خطوة)` : steps ? `بقي ${num(goal() - steps)} خطوة على الهدف` : 'لم يُسجَّل عدد الخطوات لهذا اليوم'}</p>
+    </div>
+
+    <h2>مقارنة</h2>
+    <div class="rep-grid">
+      <div class="rep-box"><b>${y} ${diff(sc, y)}</b><span>الأمس (والفرق عنه)</span></div>
+      <div class="rep-box"><b>${avg === null ? '–' : (Math.round(avg * 10) / 10) + ' ' + diff(sc, avg)}</b><span>متوسط الأيام السبعة السابقة</span></div>
+    </div>
+
+    ${streaks.length ? `<h2>سلاسل مستمرة</h2>
+    <div class="card"><ul class="rep-list">
+      ${streaks.map(x => `<li>${x.label}<span class="sub">🔥 ${x.n} أيام</span></li>`).join('')}
+    </ul></div>` : ''}
+
+    ${(notes.self || '').trim() || (notes.pro || '').trim() ? `<h2>ما تعلّمته</h2>
+    <div class="card">
+      ${(notes.self || '').trim() ? `<p style="margin:0 0 6px">📖 ${esc(notes.self)}</p>` : ''}
+      ${(notes.pro || '').trim() ? `<p style="margin:0">💼 ${esc(notes.pro)}</p>` : ''}
+    </div>` : ''}
+
+    <h2>${isToday ? 'تركيز الغد' : 'ما فات في هذا اليوم'}</h2>
+    <div class="card tomorrow">
+      ${focus.length
+        ? `<p style="margin:0">${focus.slice(0, 3).join('، ')}${focus.length > 3 ? ` و${focus.length - 3} غيرها` : ''}.</p>
+           <p class="muted" style="margin:6px 0 0">البدء بعادة واحدة منها أسهل من محاولة الجميع دفعة واحدة.</p>`
+        : '<p style="margin:0">لا شيء فات، أكملت كل عاداتك. المحافظة على هذا المستوى هي الهدف التالي.</p>'}
+    </div>
+
+    <div style="margin-top:16px">
+      ${d.submitted ? `<button class="btn" id="editFromReport">✏️ تعديل منجزات ${isToday ? 'اليوم' : 'هذا اليوم'}</button>` : ''}
+      <button class="btn primary" id="shareReport">مشاركة التقرير</button>
+    </div>`;
+  document.getElementById('shareReport').onclick = () => shareReport(s);
+  const ef = document.getElementById('editFromReport');
+  if (ef) ef.onclick = () => startEdit(s);
+}
+
+function reportText(s) {
+  const d = dayData(s), sc = score(s);
+  const lines = [
+    `تقرير حافز · ${fmtGreg.format(parse(s))}`,
+    `${grade(sc)}: ${sc} من ${TOTAL}`,
+    '',
+    `الصلوات في وقتها: ${PRAYERS.filter(p => d[p.id]).length} من 5`,
+    ...PRAYERS.map(p => `${d[p.id] ? '✅' : '⬜'} ${p.name}`),
+    '',
+    ...HABITS.map(h => `${d[h.id] ? '✅' : '⬜'} ${h.name}${h.steps && d.steps ? ` (${num(d.steps)} خطوة)` : ''}`),
+  ];
+  const n = d.notes || {};
+  if ((n.self || '').trim()) lines.push('', `📖 ${n.self.trim()}`);
+  if ((n.pro || '').trim()) lines.push(`💼 ${n.pro.trim()}`);
+  return lines.join('\n');
+}
+async function shareReport(s) {
+  const text = reportText(s);
+  try {
+    if (navigator.share) { await navigator.share({ text }); return; }
+    await navigator.clipboard.writeText(text);
+    toast('نُسخ التقرير، الصقه حيث تريد');
+  } catch (e) { if (e && e.name !== 'AbortError') toast('تعذّرت المشاركة'); }
+}
+
+// ===== الإحصاءات =====
+function renderStats() {
+  const days7 = [...Array(7)].map((_, i) => addDays(today(), i - 6));
+  const done7 = days7.reduce((a, s) => a + score(s), 0);
+  document.getElementById('sWeek').textContent = Math.round(done7 / (7 * TOTAL) * 100) + '%';
+  const monthPrefix = today().slice(0, 7);
+  document.getElementById('sFull').textContent =
+    Object.keys(state.days).filter(s => s.startsWith(monthPrefix) && score(s) === TOTAL).length;
+  document.getElementById('sPrayStreak').textContent = streak(allPrayers);
+
+  // رسم الخطوات
+  const vals = days7.map(s => dayData(s).steps || 0);
+  const max = Math.max(goal(), ...vals);
+  document.getElementById('stepsChart').innerHTML = days7.map((s, i) => `
+    <div class="col">
+      <span class="v">${vals[i] ? (vals[i] >= 1000 ? (Math.round(vals[i] / 100) / 10) + 'k' : vals[i]) : ''}</span>
+      <div class="b${vals[i] >= goal() ? ' hit' : ''}" style="height:${vals[i] / max * 100}%"></div>
+      <span class="l">${fmtWd.format(parse(s))}</span>
+    </div>`).join('');
+  const total7 = vals.reduce((a, b) => a + b, 0);
+  const hit = vals.filter(v => v >= goal()).length;
+  document.getElementById('stepsChartNote').textContent =
+    `المجموع ${num(total7)} خطوة · بلغت الهدف في ${hit} من 7 أيام · الهدف ${num(goal())}`;
+
+  // جدول الأسبوع
+  let html = '<tr><th>العادة</th>' + days7.map(s => `<th>${fmtWd.format(parse(s))}</th>`).join('') + '</tr>';
+  ALL.forEach(h => {
+    html += `<tr><td>${h.icon} ${h.name}</td>` +
+      days7.map(s => `<td><span class="dot${dayData(s)[h.id] ? ' on' : ''}"></span></td>`).join('') + '</tr>';
+  });
+  document.getElementById('weekTable').innerHTML = html;
+
+  // جدول السلاسل
+  const rows = [
+    ...ALL.map(h => ({ label: `${h.icon} ${h.name}`, test: s => !!dayData(s)[h.id] })),
+    { label: '🕌 الصلوات الخمس كاملة', test: allPrayers },
+    { label: '⭐ يوم مكتمل (10 من 10)', test: s => score(s) === TOTAL },
+  ];
+  html = '<tr><th>العادة</th><th>السلسلة</th><th>الأفضل</th><th style="width:30%">الالتزام</th></tr>';
+  rows.forEach(r => {
+    const rt = rate30(r.test);
+    html += `<tr><td>${r.label}</td><td>${streak(r.test)}</td><td>${bestStreak(r.test)}</td>
+      <td>${rt}%<div class="bar"><i style="width:${rt}%"></i></div></td></tr>`;
+  });
+  document.getElementById('streakTable').innerHTML = html;
+
+  renderCalendar();
+  renderNotes();
+}
+
+function cellColor(sc) {
+  if (sc === 0) return 'var(--line)';
+  if (sc === TOTAL) return 'var(--h4)';
+  if (sc <= 3) return 'var(--h1)';
+  if (sc <= 6) return 'var(--h2)';
+  return 'var(--h3)';
+}
+
+function renderCalendar() {
+  const y = calMonth.getFullYear(), m = calMonth.getMonth();
+  document.getElementById('calTitle').textContent = fmtMonth.format(calMonth);
+  const cal = document.getElementById('cal');
+  cal.innerHTML = ['أحد', 'إثنين', 'ثلاثاء', 'أربعاء', 'خميس', 'جمعة', 'سبت'].map(w => `<div class="wd">${w}</div>`).join('');
+  const startPad = new Date(y, m, 1).getDay();
+  for (let i = 0; i < startPad; i++) cal.insertAdjacentHTML('beforeend', '<div></div>');
+  const daysIn = new Date(y, m + 1, 0).getDate();
+  const t = today();
+  for (let d = 1; d <= daysIn; d++) {
+    const s = ymd(new Date(y, m, d));
+    const sc = score(s);
+    const c = document.createElement('div');
+    c.className = 'c' + (s === t ? ' today' : '') + (s > t ? ' future' : '');
+    c.style.background = s > t ? 'transparent' : cellColor(sc);
+    c.style.color = sc >= 7 ? '#fff' : 'var(--text)';
+    c.textContent = d;
+    c.title = `${sc} من ${TOTAL}`;
+    if (s <= t) c.onclick = () => { current = s; showView('today'); render(); };
+    cal.appendChild(c);
+  }
+  const now = new Date();
+  document.getElementById('calNext').disabled = y > now.getFullYear() || (y === now.getFullYear() && m >= now.getMonth());
+}
+
+function renderNotes() {
+  const el = document.getElementById('notesLog');
+  const entries = Object.keys(state.days).sort().reverse()
+    .filter(s => { const n = dayData(s).notes || {}; return (n.self || '').trim() || (n.pro || '').trim(); })
+    .slice(0, 30);
+  if (!entries.length) {
+    el.innerHTML = '<p class="muted" style="margin:0">ما تكتبه في خانتَي التطوير النفسي والمهني يظهر هنا سجلًا تعود إليه.</p>';
+    return;
+  }
+  el.innerHTML = entries.map(s => {
+    const n = dayData(s).notes;
+    return `<div style="padding:8px 0;border-bottom:1px solid var(--line)">
+      <div class="muted">${fmtShort.format(parse(s))}</div>
+      ${(n.self || '').trim() ? `<div>📖 ${esc(n.self)}</div>` : ''}
+      ${(n.pro || '').trim() ? `<div>💼 ${esc(n.pro)}</div>` : ''}
+    </div>`;
+  }).join('');
+}
+const esc = t => String(t).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+// ===== التنقل =====
+function showView(v) {
+  document.querySelectorAll('.view').forEach(e => e.classList.toggle('active', e.id === 'view-' + v));
+  document.querySelectorAll('nav button').forEach(b => b.classList.toggle('active', b.dataset.view === v));
+  window.scrollTo(0, 0);
+}
+document.querySelectorAll('nav button').forEach(b => b.onclick = () => showView(b.dataset.view));
+document.getElementById('reportLink').onclick = () => showView('report');
+document.getElementById('prevDay').onclick = () => { current = addDays(current, -1); render(); };
+document.getElementById('nextDay').onclick = () => { if (current < today()) { current = addDays(current, 1); render(); } };
+document.getElementById('backToday').onclick = () => { current = today(); render(); };
+document.getElementById('calPrev').onclick = () => { calMonth.setMonth(calMonth.getMonth() - 1); renderCalendar(); };
+document.getElementById('calNext').onclick = () => { calMonth.setMonth(calMonth.getMonth() + 1); renderCalendar(); };
+
+// ===== الإعدادات =====
+const goalInput = document.getElementById('goalInput');
+goalInput.value = goal();
+goalInput.onchange = () => {
+  const v = Math.round(Number(goalInput.value));
+  if (!v || v < 100) { goalInput.value = goal(); toast('أدخل هدفًا لا يقل عن 100 خطوة'); return; }
+  state.settings.stepGoal = v; save(); render(); toast(`صار هدفك ${num(v)} خطوة`);
+};
+
+// ===== النسخ الاحتياطي =====
+function exportData() {
+  const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `حافز-نسخة-${today()}.json`;
+  a.click();
+  toast('صُدِّرت النسخة الاحتياطية');
+}
+document.getElementById('importFile').onchange = e => {
+  const f = e.target.files[0];
+  if (!f) return;
+  f.text().then(t => {
+    try {
+      const data = JSON.parse(t);
+      if (!data.days) throw 0;
+      if (!confirm('ستُستبدل بياناتك الحالية بالنسخة المستوردة. هل تريد المتابعة؟')) return;
+      data.settings = { ...DEFAULTS, ...(data.settings || {}) };
+      state = data; save(); applyTheme(); goalInput.value = goal(); render(); toast('استُوردت البيانات');
+    } catch (err) { alert('الملف غير صالح'); }
+  });
+  e.target.value = '';
+};
+function resetData() {
+  if (!confirm('سيُمسح كل سجلك نهائيًا ولا يمكن استرجاعه إلا من نسخة احتياطية. هل أنت متأكد؟')) return;
+  state = { days: {}, settings: { ...state.settings } }; save(); current = today(); render(); toast('مُسحت البيانات');
+}
+
+// ===== لمسات =====
+let toastTimer;
+function toast(t) {
+  const el = document.getElementById('toast');
+  el.textContent = t; el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 2400);
+}
+function celebrate() {
+  toast('يوم مكتمل، 10 من 10 🎉');
+  const icons = ['⭐', '🎉', '✨', '🔥'];
+  for (let i = 0; i < 28; i++) {
+    const s = document.createElement('div');
+    s.className = 'confetti';
+    s.textContent = icons[i % icons.length];
+    s.style.left = Math.random() * 100 + 'vw';
+    s.style.animationDelay = Math.random() * .6 + 's';
+    document.body.appendChild(s);
+    setTimeout(() => s.remove(), 3000);
+  }
+}
+
+// تحديث تلقائي عند منتصف الليل أو عند العودة للتطبيق في يوم جديد
+let lastToday = today();
+let lastEvening = new Date().getHours() >= 21;
+function checkDayChange() {
+  const evening = new Date().getHours() >= 21;
+  if (today() !== lastToday) { if (current === lastToday) current = today(); lastToday = today(); render(); }
+  else if (evening !== lastEvening) renderToday();
+  lastEvening = evening;
+}
+document.addEventListener('visibilitychange', () => { if (!document.hidden) checkDayChange(); });
+setInterval(checkDayChange, 60 * 1000);
+
+applyTheme();
+render();
+
+// العمل دون إنترنت حين يُفتح التطبيق من رابط
+if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+  navigator.serviceWorker.register('sw.js').catch(() => {});
+}
+</script>
+</body>
+</html>
