@@ -298,7 +298,10 @@
 <div class="wrap">
   <header>
     <div class="logo">حافز<small>خطوة صغيرة كل يوم</small></div>
-    <button class="icon-btn" id="themeBtn" title="تبديل المظهر"></button>
+    <div style="display:flex;align-items:center;gap:8px">
+      <span id="syncBadge" style="font-size:16px"></span>
+      <button class="icon-btn" id="themeBtn" title="تبديل المظهر"></button>
+    </div>
   </header>
 
   <!-- ===== اليوم ===== -->
@@ -385,6 +388,9 @@
 
   <!-- ===== الإعدادات ===== -->
   <section class="view" id="view-settings">
+    <h2>الحساب والمزامنة</h2>
+    <div class="card" id="accountBox"><p class="muted" style="margin:0">المزامنة غير مفعّلة بعد؛ تُحفظ بياناتك على هذا الجهاز فقط.</p></div>
+
     <h2>المظهر</h2>
     <div class="card">
       <div class="seg" id="themeSeg">
@@ -418,7 +424,7 @@
 
     <h2>البيانات</h2>
     <div class="card">
-      <p class="muted" style="margin-top:0">تُحفظ بياناتك على هذا الجهاز وفي هذا المتصفح فقط. يُنصح بتصدير نسخة احتياطية بين حين وآخر.</p>
+      <p class="muted" style="margin-top:0">تُحفظ بياناتك على هذا الجهاز دائمًا، وفي حسابك أيضًا إن دخلت به. ويُنصح بتصدير نسخة احتياطية بين حين وآخر.</p>
       <button class="btn" onclick="exportData()">⬇️ تصدير نسخة احتياطية</button>
       <button class="btn" onclick="document.getElementById('importFile').click()">⬆️ استيراد نسخة احتياطية</button>
       <input type="file" id="importFile" accept="application/json,.json" style="display:none">
@@ -473,9 +479,13 @@ function load() {
   s.settings = { ...DEFAULTS, ...(s.settings || {}) };
   return s;
 }
+function persist() {
+  try { localStorage.setItem(KEY, JSON.stringify(state)); return true; }
+  catch (e) { toast('تعذّر الحفظ في هذا المتصفح، صدّر نسخة احتياطية'); return false; }
+}
 function save() {
-  try { localStorage.setItem(KEY, JSON.stringify(state)); flashSaved(); }
-  catch (e) { toast('تعذّر الحفظ في هذا المتصفح، صدّر نسخة احتياطية'); }
+  if (persist()) flashSaved();
+  if (window.hafez && window.hafez.onSave) window.hafez.onSave(); // الرفع إلى الحساب (sync.js)
 }
 // مؤشر صغير يؤكد أن كل علامة حُفظت فور وضعها
 let savedTimer;
@@ -1080,10 +1090,23 @@ setInterval(checkDayChange, 60 * 1000);
 applyTheme();
 render();
 
+// جسر يستعمله sync.js للمزامنة مع الحساب
+window.hafez = {
+  getState: () => state,
+  persist,
+  refresh: () => { if (editing && !state.days[editing.day]) editing = null; render(); },
+  applySettings: () => { applyTheme(); goalInput.value = goal(); },
+  isEditing,
+  toast,
+  clearLocal: () => { state = { days: {}, settings: { ...state.settings } }; editing = null; persist(); current = today(); render(); },
+  onSave: null,
+};
+
 // العمل دون إنترنت حين يُفتح التطبيق من رابط
 if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
   navigator.serviceWorker.register('sw.js').catch(() => {});
 }
 </script>
+<script type="module" src="sync.js"></script>
 </body>
 </html>
